@@ -152,13 +152,13 @@ import RightSide from './RightSide';
     });
 
 
-    const PageFormFlow3 = () =>{
+    const DashboardIndex = () =>{
         const classes = useStyles();
 
-        const [ActivityID, ActivitySetID] = React.useState(3);
+        const [activityId, setActivityId] = React.useState(3);
 
        const setID = (e) =>{
-        ActivitySetID(e);
+        setActivityId(e);
        }
         
         return(
@@ -194,7 +194,7 @@ import RightSide from './RightSide';
                                     <LeftSideA getId={setID} />
                                 </Grid>
                                 
-                                <RightSide dataID={ActivityID} />
+                                <RightSide dataID={activityId} />
                             </Grid>
                         </Container>
                     </div>
@@ -203,4 +203,4 @@ import RightSide from './RightSide';
         )
     }
 
-    export default PageFormFlow3;
+    export default DashboardIndex;

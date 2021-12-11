@@ -195,36 +195,42 @@ const LeftSideA = (props) => {
 
     return (
         <Box className={`${classes.boxContainer} ${classes.p10} ${classes.boxContainerScroll}`}>
-                <Typography variant="h6" className={`${classes.typoXLSmall} ${classes.mb8}`}>
-                    Posted Jan 21
-                </Typography>
-
                 {Data.map((Activity) => {
                     return(
-                        <Box p={1} key={Activity.id} className={classes.boxGray} onClick={() => handle(Activity.id)}>
-                            <Grid container alignItems="center" spacing={1}>
-                                <Grid item xs={3}>
-                                    <img src={Activity.image} className={`${classes.Thumbnail}`} alt="dummy" />
-                                </Grid>
-                                <Grid item xs={5}>
-                                    <Typography variant="h6" className={classes.typoBold}>
-                                        {Activity.name}
-                                    </Typography>
-                                    <Typography variant="h6" className={`${classes.lineHeight} ${Activity.status === 'COMPLETE' ? classes.textGreen : classes.textOrange}`}>
-                                        Status: 12345678
-                                    </Typography>
-                                    <Typography variant="h6" className={classes.lineHeight}>
-                                        Due Date: <br />{Activity.dueDate}
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={4} className={classes.aStartTop}>
-                                    <Typography variant="h6" className={`${classes.typoBold} ${classes.center} ${classes.mb30}`}>
-                                        Added Text
-                                    </Typography>
-                                    <Button variant="contained" className={classes.btnSm} color="primary">View/Edit text</Button>
-                                </Grid>
-                            </Grid>
-                        </Box>
+                        <>
+                            <Typography variant="h6" className={`${classes.typoXLSmall} ${classes.mb8}`}>
+                                Posted {Activity.dueDate}
+                            </Typography>
+                            
+                            {Activity.ActivityList.map((Item) => {
+                                return(
+                                    <Box p={1} key={Item.id} className={classes.boxGray} onClick={() => handle(Item.id)}>
+                                        <Grid container alignItems="center" spacing={1}>
+                                            <Grid item xs={3}>
+                                                <img src={Item.image} className={`${classes.Thumbnail}`} alt="dummy" />
+                                            </Grid>
+                                            <Grid item xs={5}>
+                                                <Typography variant="h6" className={classes.typoBold}>
+                                                    {Item.name}
+                                                </Typography>
+                                                <Typography variant="h6" className={`${classes.lineHeight} ${Item.status === 'COMPLETE' ? classes.textGreen : classes.textOrange}`}>
+                                                    Status: {Item.status}
+                                                </Typography>
+                                                <Typography variant="h6" className={classes.lineHeight}>
+                                                    Due Date: <br />{Item.dueDate}
+                                                </Typography>
+                                            </Grid>
+                                            <Grid item xs={4} className={classes.aStartTop}>
+                                                <Typography variant="h6" className={`${classes.typoBold} ${classes.center} ${classes.mb30}`}>
+                                                    Added Text
+                                                </Typography>
+                                                <Button variant="contained" className={classes.btnSm} color="primary">View/Edit text</Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Box>
+                                )
+                            })}
+                        </>
                     )
                 })}
 
