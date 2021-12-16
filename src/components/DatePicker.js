@@ -12,7 +12,6 @@ import ThemeColor from '../style/color';
 const useStyles = makeStyles({
   datePicker:{
     margin: '0px',
-
     '& .MuiInputBase-formControl':{
       border: `1px solid rgb(196 196 196)`,
       padding: '11px 8px 11px 0px',
