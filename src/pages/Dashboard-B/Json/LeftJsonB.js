@@ -23,7 +23,7 @@ const Activisties = [
                         image: 'https://picsum.photos/100',
                     },
                     {
-                        id:"3",
+                        id:"7",
                         name: 'UserName',
                         reviews: '1003',
                         rating: '4.9',

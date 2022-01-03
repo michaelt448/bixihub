@@ -90,7 +90,7 @@ const FullActivity = [
                 ]
             }
         ],
-        status: 'ACTIVITY_ACCEPTED',
+        status: 'ACTIVITY_COMPLETED',
         time: '3 days',
         people: 15,
         category: 'Electronics',
@@ -284,7 +284,7 @@ const FullActivity = [
                 ]
             }
         ],
-        status: 'ACTIVITY_ACCEPTED',
+        status: 'ACTIVITY_REQUESTED',
         time: '1 days',
         people: 40,
         category: 'Electronics',
@@ -381,7 +381,104 @@ const FullActivity = [
                 ]
             }
         ],
-        status: 'ACTIVITY_ACCEPTED',
+        status: 'COMPLEMENT_ACCEPTED',
+        time: '3 days',
+        people: 15,
+        category: 'Electronics',
+        profileViews: '502k'
+    },
+    {
+        id: '7',
+        name: 'Activity 7',
+        rating: '5',
+        views: '892',
+        dueDate: '2021-09-19',
+        image: 'http://someotherimage.com',
+        message: [
+            {
+                id: '2',
+                dueDate: '2021-09-19',
+                chat: [
+                    {
+                        id: '32',
+                        content: 'some content here',
+                        createdAt: '2021-09-22 16:38'
+                    },
+                    {
+                        id: '36',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '37',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '33',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '34',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '35',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '38',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    }
+                ]
+            },
+            {
+                id: '3',
+                dueDate: '2021-10-19',
+                chat: [
+                    {
+                        id: '32',
+                        content: 'some content here',
+                        createdAt: '2021-09-22 16:38'
+                    },
+                    {
+                        id: '33',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '34',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '35',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '36',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '37',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '38',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    }
+                ]
+            }
+        ],
+        status: 'COMPLEMENT_DECLINED',
         time: '3 days',
         people: 15,
         category: 'Electronics',
