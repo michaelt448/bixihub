@@ -3,11 +3,14 @@ import {
     makeStyles,
     Typography,
     Button,
-    TextareaAutosize,
-    Box, Grid, Modal
+    // TextareaAutosize,
+    Box, Grid, 
+    // Modal
 } from "@material-ui/core";
 
 import ThemeColor from '../../../style/color';
+import Declined from './Declined';
+import ComplementAccepted from './ComplementAccepted';
 
     const useStyles = makeStyles(() => ({
         typoSmall:{
@@ -123,8 +126,10 @@ const Completed = () => {
     const classes = useStyles();
 
     const [open, setOpen] = React.useState(false);
+    const [openDec, setOpenDec] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleOpenDec = () => setOpenDec(true);
+    // const handleClose = () => setOpen(false);
 
     return (
         <>
@@ -138,12 +143,16 @@ const Completed = () => {
                         <Button onClick={handleOpen} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnGreen}`}>Accept Post</Button>
                     </Grid>
                     <Grid item xs={6}>
-                        <Button onClick={handleOpen} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnRed}`}>Decline Post</Button>
+                        <Button onClick={handleOpenDec} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnRed}`}>Decline Post</Button>
                     </Grid>
                 </Grid>
             </Box>
 
-            <Modal
+            {openDec && <Declined />}
+
+            {open && <ComplementAccepted />}
+
+            {/* <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -166,7 +175,7 @@ const Completed = () => {
                     />
                     <Button onClick={handleClose} variant="primary" className={`${classes.formButton} ${classes.formButtonXXL}`}>XXXX xxxxxx</Button>
                 </Box>
-            </Modal>
+            </Modal> */}
         </>
     );
 };

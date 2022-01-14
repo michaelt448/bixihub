@@ -79,9 +79,15 @@ const ActivityFilter = (props) => {
     const classes = useStyles();
 
     const [filter, setFilter] = React.useState(false);
+    const [filterItem, setFilterItem] = React.useState(true);
 
     const filterToggle = () =>{
         setFilter(!filter);
+        setFilterItem(true);
+    }
+
+    const filterToggleItems = () =>{
+        setFilterItem(!filterItem);
     }
 
     const handle = (e) =>{
@@ -109,16 +115,17 @@ const ActivityFilter = (props) => {
                         <Typography variant="h6" className={`${classes.typoBold} ${classes.center} ${classes.mb30}`}>
                             Reward: ${item.reward}
                         </Typography>
-                        <Button variant="contained" className={`${classes.btnSm} ${classes.btnBlue}`} color="primary">Added text</Button>
+                        {/* <Button variant="contained" className={`${classes.btnSm} ${classes.btnBlue}`} color="primary">Added text</Button> */}
                         <Button variant="contained" className={classes.btnSm} color="primary">View/Edit text</Button>
                     </Grid>
                 </Grid>
             </Box>
 
             
-            {filter && <Button onClick={() => filterToggle()} variant="contained" className={`${classes.btnSm} ${classes.mb8}`} color="primary">Remove Filter</Button>}
+            {filter && <Button onClick={() => filterToggleItems()} variant="contained" className={`${classes.btnSm} ${classes.mb8}`} color="primary">{filterItem ? 'Remove Filter' : 'Add Filter'}</Button>}
 
-            {filter && <ActivityFilterItem getId={(e) => handle(e)} filter={item} />}
+            {/* {filter && <ActivityFilterItem getId={(e) => handle(e)} filter={item} />} */}
+            {filter && <ActivityFilterItem  getId={(e) => handle(e)} filter={item} filterItem={filterItem} /> }
         </>
     );
 };

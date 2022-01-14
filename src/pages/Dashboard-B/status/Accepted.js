@@ -2,7 +2,9 @@ import React from 'react';
 import {
     makeStyles,
     Typography,
-    Input, Button
+    // Input,
+    Select, 
+    Button
 } from "@material-ui/core";
 
 import ThemeColor from '../../../style/color';
@@ -56,9 +58,9 @@ import ThemeColor from '../../../style/color';
                 marginLeft: '12px',
                 fontWeight: 'bold'
             },
-            '& input, & button':{
+            '& input, & select, & button':{
                 border: `1px solid ${ThemeColor.GrayDark}`,
-                borderRadius: '22px',
+                borderRadius: '22px !important',
                 boxShadow: 'none',
                 padding: '5px 12px',
                 textTransform: 'none',
@@ -101,7 +103,15 @@ const Accepted = () => {
                 Submit Tracking Number
             </Typography>
             <form action="/" className={`${classes.formSend}`}>
-                <Input placeholder="Tracking Number" />
+                {/* <Input placeholder="Tracking Number" /> */}
+                <Select native defaultValue="" id="grouped-native-select">
+                <option value="">Tracking Number</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    </Select>
                 <Button variant="contained" className={classes.btnSm} color="primary">Send</Button>
             </form>
         </>

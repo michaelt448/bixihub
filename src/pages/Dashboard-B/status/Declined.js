@@ -3,8 +3,7 @@ import {
     makeStyles, 
     Button,
     Box, Modal, Typography,
-    Radio,
-    RadioGroup,
+    Checkbox,
     FormControlLabel,
     FormControl,
     FormLabel
@@ -131,26 +130,18 @@ const Declined = () => {
                 <div className={classes.mb30}>
                     <FormControl component="fieldset">
                         <FormLabel component="legend">Requirements:</FormLabel>
-                        <RadioGroup
-                            name="radio-requirements"
-                        >
-                            <FormControlLabel value="requirements-1" control={<Radio />} label="Must Produce YouTube video" />
-                            <FormControlLabel value="requirements-2" control={<Radio />} label="Can be integrated in the video (not a separate review video)" />
-                            <FormControlLabel value="requirements-3" control={<Radio />} label="Must post our website in description" />
-                            <FormControlLabel value="requirements-4" control={<Radio />} label="Must post our discount code in description" />
-                            <FormControlLabel value="requirements-5" control={<Radio />} label="Must show the product functioning" />
-                        </RadioGroup>
+                        <FormControlLabel value="requirements-1" control={<Checkbox />} label="Must Produce YouTube video" />
+                        <FormControlLabel value="requirements-2" control={<Checkbox />} label="Can be integrated in the video (not a separate review video)" />
+                        <FormControlLabel value="requirements-3" control={<Checkbox />} label="Must post our website in description" />
+                        <FormControlLabel value="requirements-4" control={<Checkbox />} label="Must post our discount code in description" />
+                        <FormControlLabel value="requirements-5" control={<Checkbox />} label="Must show the product functioning" />
                     </FormControl>
                 </div>
                 <div className={classes.mb30}>
                     <FormControl component="fieldset">
                         <FormLabel component="legend">Custom Requirements:</FormLabel>
-                        <RadioGroup
-                            name="radio-custom-requirements"
-                        >
-                            <FormControlLabel value="custom-requirements-1" control={<Radio />} label="Must show unboxing the product" />
-                            <FormControlLabel value="custom-requirements-2" control={<Radio />} label="Must be completed by: June 30, 2022" />
-                        </RadioGroup>
+                        <FormControlLabel value="custom-requirements-1" control={<Checkbox />} label="Must show unboxing the product" />
+                        <FormControlLabel value="custom-requirements-2" control={<Checkbox />} label="Must be completed by: June 30, 2022" />
                     </FormControl>
                 </div>
 

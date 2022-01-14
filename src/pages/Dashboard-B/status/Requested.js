@@ -2,11 +2,14 @@ import React from 'react';
 import {
     makeStyles, 
     Button,
-    TextareaAutosize,
-    Box, Grid, Modal, Typography
+    // TextareaAutosize,
+    Box, Grid, 
+    // Modal, Typography
 } from "@material-ui/core";
 
 import ThemeColor from '../../../style/color';
+import Declined from './Declined';
+import ComplementAccepted from './ComplementAccepted';
 
     const useStyles = makeStyles(() => ({
         formButton:{
@@ -104,8 +107,10 @@ const Requested = () => {
     const classes = useStyles();
 
     const [open, setOpen] = React.useState(false);
+    const [openDec, setOpenDec] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleOpenDec = () => setOpenDec(true);
+    // const handleClose = () => setOpen(false);
 
     return (
         <>
@@ -115,12 +120,16 @@ const Requested = () => {
                         <Button onClick={handleOpen} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnGreen}`}>Accept Request</Button>
                     </Grid>
                     <Grid item xs={6}>
-                        <Button onClick={handleOpen} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnRed}`}>Decline Request</Button>
+                        <Button onClick={handleOpenDec} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnRed}`}>Decline Request</Button>
                     </Grid>
                 </Grid>
             </Box>
 
-            <Modal
+            {openDec && <Declined />}
+
+            {open && <ComplementAccepted />}
+
+            {/* <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
@@ -143,7 +152,7 @@ const Requested = () => {
                     />
                     <Button onClick={handleClose} variant="primary" className={`${classes.formButton} ${classes.formButtonXXL}`}>XXXX xxxxxx</Button>
                 </Box>
-            </Modal>
+            </Modal> */}
         </>
     );
 };
