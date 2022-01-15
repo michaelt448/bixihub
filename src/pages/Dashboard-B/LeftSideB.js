@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     boxContainerScroll:{
-        height: '570px',
+        height: '600px',
         overflow: 'auto'
     },
     p10:{

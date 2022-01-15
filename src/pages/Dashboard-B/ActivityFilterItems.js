@@ -109,32 +109,30 @@ const ActivityFilterItem = (props) => {
 
     return (
         <>
-            {props.filterItem &&
-                <Box className={classes.filter} style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
-                    <Typography variant="h6" className={classes.lineHeight} style={{marginBottom: '3px'}}>
-                        Filter By:
-                    </Typography>
+            <Box className={classes.filter} style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
+                <Typography variant="h6" className={classes.lineHeight} style={{marginBottom: '3px'}}>
+                    Filter By:
+                </Typography>
 
-                    <Typography onClick={() => setCat('completed')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#ECFFE3', padding:'5px 4px', borderRadius: '5px'}}>
-                        Completed: {item.completed}
-                    </Typography>
-                    <Typography onClick={() => setCat('active')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#FFF8AA', padding:'5px 4px', borderRadius: '5px'}}>
-                        Active: {item.active}
-                    </Typography>
-                    <Typography onClick={() => setCat('unclaimed')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#FD9999', padding:'5px 4px', borderRadius: '5px'}}>
-                        Unclaimed: {item.unclaimed}
-                    </Typography>
-                    <Typography onClick={() => setCat('requests')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#E5ACFF', padding:'5px 4px', borderRadius: '5px'}}>
-                        New Requests: {item.requests}
-                    </Typography>
-                </Box>
-            } 
+                <Typography onClick={() => setCat('completed')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#ECFFE3', padding:'5px 4px', borderRadius: '5px'}}>
+                    Completed: {item.completed}
+                </Typography>
+                <Typography onClick={() => setCat('active')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#FFF8AA', padding:'5px 4px', borderRadius: '5px'}}>
+                    Active: {item.active}
+                </Typography>
+                <Typography onClick={() => setCat('unclaimed')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#FD9999', padding:'5px 4px', borderRadius: '5px'}}>
+                    Unclaimed: {item.unclaimed}
+                </Typography>
+                <Typography onClick={() => setCat('requests')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#E5ACFF', padding:'5px 4px', borderRadius: '5px'}}>
+                    New Requests: {item.requests}
+                </Typography>
+            </Box>
 
             {!cat ? (
                 item.ActivityListFilter.map((activity, index) => {
                     return(
                         <Box p={1}  onClick={() => handle(activity.id)} className={`${classes.filterBox}`} style={{backgroundColor: index % 2 ? '#F3FFED89' : '#FFFDE3'}}>
-                            {activity.viewed && <div className={classes.redCircle}></div>}
+                            {activity.viewed > 0 && <div className={classes.redCircle}></div>}
                             <Grid container alignItems="center" spacing={1}>
                                 <Grid item xs={2}>
                                     <img src={activity.image} className={`${classes.Thumbnail} ${classes.filterThumbnail}`} alt="dummy" />

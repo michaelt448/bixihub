@@ -28,7 +28,7 @@ import ThemeColor from '../../style/color';
             }
         },
         boxContainerScroll:{
-            height: '570px',
+            height: '600px',
             overflow: 'auto'
         },      
         p0:{

@@ -51,6 +51,7 @@ const FullActivity = [
             {
                 id: '3',
                 dueDate: '2021-10-19',
+                new: true,
                 chat: [
                     {
                         id: '32',
@@ -148,6 +149,7 @@ const FullActivity = [
             {
                 id: '3',
                 dueDate: '2021-10-19',
+                new: true,
                 chat: [
                     {
                         id: '32',
@@ -245,6 +247,7 @@ const FullActivity = [
             {
                 id: '3',
                 dueDate: '2021-10-19',
+                new: true,
                 chat: [
                     {
                         id: '32',
@@ -342,6 +345,7 @@ const FullActivity = [
             {
                 id: '3',
                 dueDate: '2021-10-19',
+                new: true,
                 chat: [
                     {
                         id: '32',
@@ -439,6 +443,7 @@ const FullActivity = [
             {
                 id: '3',
                 dueDate: '2021-10-19',
+                new: true,
                 chat: [
                     {
                         id: '32',

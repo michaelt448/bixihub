@@ -17,6 +17,16 @@ import Message from './Message';
             fontWeight: 'normal',
             lineHeight: '1',
             fontSize: '13px',
+        },
+        newLine:{
+            borderBottom: `1px solid ${ThemeColor.YellowDark}`,
+            color: ThemeColor.YellowDark,
+            textAlign: 'center',
+            fontWeight: '700',
+            fontSize: '15px'
+        },
+        pt5:{
+            paddingTop: '8px'
         }
     }));
 
@@ -28,7 +38,8 @@ import Message from './Message';
                 props.Message.map((message) => {
                     return(
                         <>
-                            <Box p={3} key={message.id}>
+                            {message.new && <div className={classes.newLine}>New</div>}
+                            <Box p={3} className={classes.pt5} key={message.id}>
                                 <Typography variant="h6" className={`${classes.typoXLSmall} ${classes.center}`}>
                                     {message.dueDate}
                                 </Typography>

@@ -2,7 +2,7 @@ import React from 'react';
 import {
     makeStyles,
     Typography,
-    // Input,
+    Input,
     Select, 
     Button
 } from "@material-ui/core";
@@ -54,6 +54,7 @@ import ThemeColor from '../../../style/color';
         formSend:{
             display: 'flex',
             marginBottom: '6px',
+            alignItems: 'flex-end',
             '& button':{
                 marginLeft: '12px',
                 fontWeight: 'bold'
@@ -85,6 +86,13 @@ import ThemeColor from '../../../style/color';
             fontFamily: "Helvetica Neue",
             backgroundColor: ThemeColor.YellowLight,
             border: `1px solid ${ThemeColor.GrayDark}`,
+        },
+        formFields:{
+            display: 'flex',
+            flexDirection: 'column',
+            '& input':{
+                marginBottom: '5px'
+            }
         }
     }));
 
@@ -103,15 +111,17 @@ const Accepted = () => {
                 Submit Tracking Number
             </Typography>
             <form action="/" className={`${classes.formSend}`}>
-                {/* <Input placeholder="Tracking Number" /> */}
-                <Select native defaultValue="" id="grouped-native-select">
-                <option value="">Tracking Number</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                <div className={classes.formFields}>
+                    <Input placeholder="Text" />
+                    <Select native defaultValue="" id="grouped-native-select">
+                        <option value="">Drop Down</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </Select>
+                </div>
                 <Button variant="contained" className={classes.btnSm} color="primary">Send</Button>
             </form>
         </>

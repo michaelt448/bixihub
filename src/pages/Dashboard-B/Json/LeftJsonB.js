@@ -21,7 +21,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'completed',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"7",
@@ -31,7 +31,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'completed',
                         image: 'https://picsum.photos/100',
-                        viewed: false
+                        viewed: 0
                     },
                     {
                         id:"4",
@@ -41,7 +41,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'active',
                         image: 'https://picsum.photos/100',
-                        viewed: false
+                        viewed: 0
                     },
                     {
                         id:"4",
@@ -51,7 +51,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'active',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"5",
@@ -61,7 +61,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'unclaimed',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"5",
@@ -71,7 +71,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'unclaimed',
                         image: 'https://picsum.photos/100',
-                        viewed: false
+                        viewed: 0
                     },
                     {
                         id:"5",
@@ -81,7 +81,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'unclaimed',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"6",
@@ -91,7 +91,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'requests',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     }
                 ]
             },
@@ -113,7 +113,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'completed',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"4",
@@ -123,7 +123,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'active',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"5",
@@ -133,7 +133,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'unclaimed',
                         image: 'https://picsum.photos/100',
-                        viewed: false
+                        viewed: 0
                     },
                     {
                         id:"6",
@@ -143,7 +143,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'requests',
                         image: 'https://picsum.photos/100',
-                        viewed: false
+                        viewed: 0
                     }
                 ]
             },
@@ -165,7 +165,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'completed',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"4",
@@ -175,7 +175,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'active',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"5",
@@ -185,7 +185,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'unclaimed',
                         image: 'https://picsum.photos/100',
-                        viewed: true
+                        viewed: 1
                     },
                     {
                         id:"6",
@@ -195,7 +195,7 @@ const Activisties = [
                         views: '456',
                         filterBy: 'requests',
                         image: 'https://picsum.photos/100',
-                        viewed: false
+                        viewed: 0
                     }
                 ]
             },

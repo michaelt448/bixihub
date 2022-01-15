@@ -53,7 +53,7 @@ import ThemeColor from '../../style/color';
         return( 
             props.message.map((chat) => {
                 return(
-                    <Box key={chat.id} className={classes.textNoWrap} p={1.2}>
+                    <Box key={chat.id} className={`${classes.textNoWrap}`} p={1.2}>
                         <Typography variant="h6" className={classes.typoSmall}>
                             <div dangerouslySetInnerHTML={{__html: chat.content}} />
                         </Typography>

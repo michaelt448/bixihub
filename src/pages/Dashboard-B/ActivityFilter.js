@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         borderRadius: '4px',
         marginBottom: '15px',
+        position: 'relative',
 
         '& h6':{
             fontSize: '14px',
@@ -72,6 +73,19 @@ const useStyles = makeStyles((theme) => ({
     },
     btns:{
         cursor: 'pointer'
+    },
+    redCircle: {
+        position: 'absolute',
+        backgroundColor: ThemeColor.Red,
+        width: '15px',
+        height: '15px',
+        lineHeight: '15px',
+        borderRadius: '20px',
+        top: '-4px',
+        right: '-6px',
+        fontSize: '10px',
+        textAlign: 'center',
+        color: ThemeColor.White
     }
 }));
 
@@ -79,15 +93,10 @@ const ActivityFilter = (props) => {
     const classes = useStyles();
 
     const [filter, setFilter] = React.useState(false);
-    const [filterItem, setFilterItem] = React.useState(true);
 
     const filterToggle = () =>{
         setFilter(!filter);
-        setFilterItem(true);
-    }
-
-    const filterToggleItems = () =>{
-        setFilterItem(!filterItem);
+        props.getId('')
     }
 
     const handle = (e) =>{
@@ -96,9 +105,14 @@ const ActivityFilter = (props) => {
 
     const item = props.item;
 
+    // console.log(item.ActivityListFilter)
+    let sum = item.ActivityListFilter.reduce((accumulator, current) => accumulator + current.viewed, 0);
+    //   console.log(sum)
+
     return (
         <>
             <Box p={1} className={`${classes.boxGray} ${classes.bgGray}`} onClick={() => filterToggle()}>
+                {sum > 0 && <div className={classes.redCircle}>{sum}</div>}
                 <Grid container alignItems="center" spacing={1}>
                     <Grid item xs={3}>
                         <img src={item.image} className={`${classes.Thumbnail}`} alt="dummy" />
@@ -122,10 +136,10 @@ const ActivityFilter = (props) => {
             </Box>
 
             
-            {filter && <Button onClick={() => filterToggleItems()} variant="contained" className={`${classes.btnSm} ${classes.mb8}`} color="primary">{filterItem ? 'Remove Filter' : 'Add Filter'}</Button>}
+            {filter && <Button onClick={() => filterToggle()} variant="contained" className={`${classes.btnSm} ${classes.mb8}`} color="primary">Remove Filter</Button>}
 
             {/* {filter && <ActivityFilterItem getId={(e) => handle(e)} filter={item} />} */}
-            {filter && <ActivityFilterItem  getId={(e) => handle(e)} filter={item} filterItem={filterItem} /> }
+            {filter && <ActivityFilterItem  getId={(e) => handle(e)} filter={item} /> }
         </>
     );
 };
