@@ -107,6 +107,10 @@ const ActivityFilterItem = (props) => {
 
     const item = props.filter;
 
+    React.useEffect(() => {
+        setCat('');
+      }, [props.refresh]);
+
     return (
         <>
             <Box className={classes.filter} style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap'}}>
@@ -163,6 +167,7 @@ const ActivityFilterItem = (props) => {
                 item.ActivityListFilter.filter(item => item.filterBy === cat).map((activity, index) => {
                     return(
                         <Box p={1}  onClick={() => handle(activity.id)} className={`${classes.filterBox}`} style={{backgroundColor: index % 2 ? '#F3FFED89' : '#FFFDE3'}}>
+                            {activity.viewed > 0 && <div className={classes.redCircle}></div>}
                             <Grid container alignItems="center" spacing={1}>
                                 <Grid item xs={2}>
                                     <img src={activity.image} className={`${classes.Thumbnail} ${classes.filterThumbnail}`} alt="dummy" />

@@ -93,14 +93,20 @@ const ActivityFilter = (props) => {
     const classes = useStyles();
 
     const [filter, setFilter] = React.useState(false);
+    const [filterBtn, setFilterBtn] = React.useState(false);
 
     const filterToggle = () =>{
         setFilter(!filter);
-        props.getId('')
+        // props.getId('')
+    }
+
+    const filterToggleBtn = () =>{
+        setFilterBtn(!filterBtn);
+        // props.getId('')
     }
 
     const handle = (e) =>{
-        props.getId(e)
+        props.getId(e);
     }
 
     const item = props.item;
@@ -136,10 +142,10 @@ const ActivityFilter = (props) => {
             </Box>
 
             
-            {filter && <Button onClick={() => filterToggle()} variant="contained" className={`${classes.btnSm} ${classes.mb8}`} color="primary">Remove Filter</Button>}
+            {filter && <Button onClick={() => filterToggleBtn()} variant="contained" className={`${classes.btnSm} ${classes.mb8}`} color="primary">Remove Filter</Button>}
 
             {/* {filter && <ActivityFilterItem getId={(e) => handle(e)} filter={item} />} */}
-            {filter && <ActivityFilterItem  getId={(e) => handle(e)} filter={item} /> }
+            {filter && <ActivityFilterItem  getId={(e) => handle(e)} filter={item} refresh={filterBtn} />}
         </>
     );
 };
