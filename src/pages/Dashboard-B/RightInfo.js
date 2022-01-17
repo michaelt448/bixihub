@@ -111,6 +111,13 @@ import ComplementAccepted from './status/ComplementAccepted';
         },
         avtarCenter:{
             margin: '0 auto 15px'
+        },
+        noaction :{
+            color: ThemeColor.Red
+        },
+        postcompleted :{
+            color: ThemeColor.Green,
+            textAlign: 'center'
         }
     }));
 
@@ -155,6 +162,16 @@ import ComplementAccepted from './status/ComplementAccepted';
                     {info.status === 'ACTIVITY_ACCEPTED' && <Accepted />}
 
                     {info.status === 'ACTIVITY_REQUESTED' && <Requested />}
+
+                    {info.status === 'Post_Completed' && 
+                    <Typography variant="h6" className={`${classes.postcompleted}`}>
+                        Post Completed
+                    </Typography>}
+
+                    {info.status === 'Product_delivered' && 
+                    <Typography variant="h6" className={`${classes.noaction}`}>
+                        No Actions needed for you, currently waiting on Person
+                    </Typography>}
                 </Box>
 
 
