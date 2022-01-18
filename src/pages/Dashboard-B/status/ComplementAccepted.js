@@ -7,6 +7,7 @@ import {
 
 import ThemeColor from '../../../style/color';
 import Star from '../../../assets/images/gold-star.jpg';
+import Rating from '../../../components/RatingStar';
 
     const useStyles = makeStyles(() => ({
         formButton:{
@@ -139,11 +140,7 @@ const ComplementAccepted = () => {
                     </Typography>
 
                     <div className={classes.center}>
-                        <img width="25" src={Star} style={{margin: '0px 2px'}} alt="star" />
-                        <img width="25" src={Star} style={{margin: '0px 2px'}} alt="star" />
-                        <img width="25" src={Star} style={{margin: '0px 2px'}} alt="star" />
-                        <img width="25" src={Star} style={{margin: '0px 2px'}} alt="star" />
-                        <img width="25" src={Star} style={{margin: '0px 2px'}} alt="star" />
+                        <Rating />
                     </div>
                     
                 </div>
