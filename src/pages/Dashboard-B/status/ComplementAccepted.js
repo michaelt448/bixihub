@@ -6,7 +6,6 @@ import {
 } from "@material-ui/core";
 
 import ThemeColor from '../../../style/color';
-import Star from '../../../assets/images/gold-star.jpg';
 import Rating from '../../../components/RatingStar';
 
     const useStyles = makeStyles(() => ({
