@@ -5,21 +5,22 @@ Grid,
 Button,
 Typography,
 Input,
-TextareaAutosize,
 Box,
 Avatar,
-Modal
 } from "@material-ui/core";
 import ThemeColor from '../../style/color';
 
 // assets
 import Star from '../../assets/images/gold-star.jpg';
 
+import ReviewPopup from './Status/ReviewPopup';
+
     const useStyles = makeStyles((theme) => ({
         typo:{
             color: ThemeColor.Black,
             fontWeight: 'normal',
-            lineHeight: '1',
+            lineHeight: '1.1',
+            fontSize: '15px',
 
             '@media (max-width: 959px)':{
                 fontSize: '1.2rem'
@@ -61,6 +62,12 @@ import Star from '../../assets/images/gold-star.jpg';
             marginBottom: '20px',
             '@media (max-width: 640px)':{
                 marginBottom: '10px'
+            }
+        },
+        mt20:{
+            marginTop: '20px',
+            '@media (max-width: 640px)':{
+                marginTop: '10px'
             }
         },
         mb30:{
@@ -244,14 +251,21 @@ import Star from '../../assets/images/gold-star.jpg';
 
     const PageFormFlow3 = (props) =>{
         const classes = useStyles();
+        const [success, setSuccess] = React.useState(false);
 
         const [open, setOpen] = React.useState(false);
         const handleOpen = () => setOpen(true);
-        const handleClose = () => setOpen(false);
+        
+        const [Reopen, setReOpen] = React.useState(false);
+        const handleReOpen = () => setReOpen(!Reopen);
         
         
         const [dOpen, setdOpen] = React.useState(false);
         const dropdownOpen = () => setdOpen(!dOpen);
+        
+        const [waiting, setWaiting] = React.useState(false);
+        const handleWaiting = (e) => {setWaiting(e); setReOpen(!Reopen);};
+
         
         const info = props.info;
         return( 
@@ -269,80 +283,136 @@ import Star from '../../assets/images/gold-star.jpg';
                         </Box>
                     </Box>
 
-                    <Typography variant="h6" className={`${classes.typoSmall} ${classes.mb30}`}>
+                    <Typography variant="h6" className={`${classes.typo} ${classes.center} ${classes.mb30}`}>
                         {info.addressShipped}
                     </Typography>
 
-                    <Box className={classes.dropdown}>
-                        <Button onClick={dropdownOpen} variant="contained" className={`${classes.formButton}`}>Requirements 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                                <path fillRule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                            </svg>
-                        </Button>
-                        {/* dOpen */}
-                        {dOpen ? (
-                            <Box className={classes.dropdownMenu}>
-                                <Typography className={`${classes.typo}`}>
-                                    <div dangerouslySetInnerHTML={{__html: info.requirements}} />
-                                </Typography>
-                            </Box>
-                        ): null}
-                    </Box>
+                    {open !== true && (
+                        <Box className={classes.dropdown}>
+                            <Button onClick={dropdownOpen} variant="contained" className={`${classes.formButton}`}>Requirements 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fillRule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </Button>
+                            {/* dOpen */}
+                            {dOpen ? (
+                                <Box className={classes.dropdownMenu}>
+                                    <Typography className={`${classes.typo}`}>
+                                        <div dangerouslySetInnerHTML={{__html: info.requirements}} />
+                                    </Typography>
+                                </Box>
+                            ): null}
+                        </Box>
+                    )}
 
-                    {info.status === 'requested' && 
+                    {info.status === 'Activity_Requested' && 
                         <Typography variant="h6" style={{marginTop: '40px'}} className={`${classes.center} ${classes.typoSmall}`}>
                             Waiting for Request Approval
                         </Typography>
                     }
 
-                    <Typography variant="h6" style={{fontWeight: 'bold'}} className={`${classes.center}`}>
-                        12345678 123456
-                    </Typography>
-                    <Typography variant="h6" style={{color: ThemeColor.Black}} className={`${classes.typoSmall} ${classes.mb30} ${classes.center}`}>
-                        904923403924
-                    </Typography>
+                    {info.status === 'Activity_Accepted' && 
+                        (
+                            <>
+                                <Typography variant="h6" style={{marginTop: '40px'}} className={`${classes.center} ${classes.typoSmall}`}>
+                                    Waiting for Shipping information
+                                </Typography>
+                                <Box p={0} marginTop="auto">
+                                    <Typography style={{color: ThemeColor.gray}} className={`${classes.typo} ${classes.center}`}>
+                                        Due: {info.dueDate}
+                                    </Typography>
+                                </Box>
+                            </>
+                        )
+                    }
 
-                    <Typography variant="h6" className={`${classes.typo} ${classes.mb30}`}>
-                        Text Text Text Text Text Text Text Text Text
-                    </Typography>
+                    {info.status === 'Activity_Declined' && 
+                        <Typography variant="h5" style={{marginTop: '40px', color: ThemeColor.Red}} className={`${classes.center} ${classes.typoBold}`}>
+                            Request Declined
+                        </Typography>
+                    }
 
-                    <form action="/" className={`${classes.formSend}`}>
-                        <Input placeholder="Paste Text here" />
-                    </form>
+                    {(info.status === 'Product_Delivered' && open !== true) && (
+                        <>
+                            {info.trackingNumber && (
+                                <>
+                                    <Typography variant="h6" style={{fontWeight: 'bold'}} className={`${classes.center}`}>
+                                        Tracking Number
+                                    </Typography>
+                                    <Typography variant="h6" className={`${classes.typo} ${classes.center}`}>
+                                        {info.trackingNumber}
+                                    </Typography>
+                                </>
+                            )}
+                            {info.carrier && (
+                                <>
+                                    <Typography variant="h6" style={{fontWeight: 'bold'}} className={`${classes.center}`}>
+                                        Carrier
+                                    </Typography>
+                                    <Typography variant="h6" className={`${classes.typo} ${classes.mb30} ${classes.center}`}>
+                                        {info.carrier}
+                                    </Typography>
+                                </>
+                            )}
 
-                    <Typography variant="h6" style={{color: ThemeColor.Black}} className={`${classes.typoSmall} ${classes.mb20} ${classes.center}`}>
-                        Due: {info.dueDate}
-                    </Typography>
+                            <Typography variant="h6" className={`${classes.typo} ${classes.center} ${classes.mb30}`}>
+                                Submit your video or post URL below when you finish the gig.
+                            </Typography>
 
-                    <Box p={0} marginTop="auto">
-                        <Button onClick={handleOpen} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnGreen}`}>Submit</Button>
-                    </Box>
+                            <form action="/" className={`${classes.formSend}`}>
+                                <Input placeholder="Paste Text here" />
+                            </form>
+
+                            <Typography variant="h6" className={`${classes.typo} ${classes.mb20} ${classes.center}`}>
+                                Due: {info.dueDate}
+                            </Typography>
+
+                            <Box p={0} marginTop="auto">
+                                <Button onClick={handleOpen} variant="contained" className={`${classes.formButton} ${classes.formButtonXL} ${classes.btnGreen}`}>Submit</Button>
+                            </Box>
+                        </>
+                    )}
+
+                    {open && (
+                        <>
+                            <Button variant="contained" className={`${classes.formButton}`}>View Gig</Button>
+
+                            <Box p={0} marginTop="auto">
+                                <Typography variant="h5" className={`${classes.center}`}>
+                                    Job Complete!
+                                </Typography>
+                                {waiting && 
+                                    <Typography variant="h6" className={`${classes.center} ${classes.typoSmall}`}>
+                                        Waiting for Review
+                                    </Typography>
+                                }
+
+                                {success && 
+                                    <Typography variant="h6" style={{color: ThemeColor.Green}} className={`${classes.center} ${classes.typoSmall}`}>
+                                        Post Accepted
+                                    </Typography>
+                                }
+
+                                {info.status === 'Complement_complete' && 
+                                    <Typography variant="h6" style={{color: ThemeColor.Green}} className={`${classes.center} ${classes.typoSmall}`}>
+                                        Post Accepted
+                                    </Typography>
+                                }
+
+                                {info.status === 'Complement_declined' && 
+                                    <Typography variant="h6" style={{color: ThemeColor.Red}} className={`${classes.center} ${classes.typoSmall}`}>
+                                        Post Declined
+                                    </Typography>
+                                }
+
+                                <Button variant="contained" onClick={handleReOpen} className={`${classes.formButton} ${classes.mt20} ${classes.formButtonXL} ${classes.btnGreen}`}>Submitted</Button>
+                            </Box>
+                        </>
+                    )}
                 </Box>
 
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
-                    <Box className={classes.modal}>
-                        <Button onClick={handleClose} className={classes.modalCloase}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
-                                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
-                            </svg>
-                        </Button>
-                        <Typography variant="h6" className={`${classes.typoBold} ${classes.mb30}`} style={{paddingRight: '15px'}}>
-                            1234 x 123456 xx xxx xxxx xxxxxx (xxxxxxxxxx)
-                        </Typography>
-                        <TextareaAutosize
-                            placeholder="Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text "
-                            minRows={8}
-                            className={`${classes.textArea} ${classes.mb20}`}
-                        />
-                        <Button onClick={handleClose} variant="primary" className={`${classes.formButton} ${classes.formButtonXXL}`}>XXXX xxxxxx</Button>
-                    </Box>
-                </Modal>
+                {open && <ReviewPopup waiting={(e) => handleWaiting(e)} />}
+                {Reopen && <ReviewPopup waiting={(e) => handleWaiting(e)} submit={(e) => setSuccess(e)} />}
             </Grid>
         )
     }

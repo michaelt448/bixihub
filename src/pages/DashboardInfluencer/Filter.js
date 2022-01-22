@@ -36,7 +36,7 @@ const Filter = (props) => {
             <Typography onClick={() => props.filter('ACTIVITY_REQUESTED')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: '#FFF8AA', padding:'5px 4px', borderRadius: '5px'}}>
                 Requested Gigs
             </Typography>
-            <Typography onClick={() => props.filter('active')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #000', backgroundColor: ThemeColor.Green, padding:'5px 4px', borderRadius: '5px'}}>
+            <Typography onClick={() => props.filter('active')} className={`${classes.lineHeight} ${classes.btns}`} style={{fontSize: '10px', marginLeft: '4px', marginBottom: '3px', border:'1px solid #005025', backgroundColor: ThemeColor.Green, padding:'5px 4px', borderRadius: '5px'}}>
                 Active Gigs
             </Typography>
         </Box>
