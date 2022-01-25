@@ -160,7 +160,7 @@ import Filter from './Filter';
         const classes = useStyles();
 
         const [activityId, setActivityId] = React.useState('');
-        const [filter, setFilter] = React.useState('');
+        const [filter, setFilter] = React.useState('ACTIVITY_REQUESTED');
 
         const handle = (e) => setFilter(e);
 

@@ -3,6 +3,15 @@ const Activisties = [
         id: '2',
         ActivityList:[
             {
+                id: '0',
+                name: 'Activity 0',
+                dueDate: '2021-09-19',
+                image: 'https://picsum.photos/200',
+                updatedAt: '2021-10-22',
+                filter: 'ACTIVITY_REQUESTED',
+                viewed: 0
+            },
+            {
                 id: '1',
                 name: 'Activity 1',
                 dueDate: '2021-09-19',
@@ -35,7 +44,7 @@ const Activisties = [
                 dueDate: '2021-09-19',
                 image: 'https://picsum.photos/200',
                 updatedAt: '2021-10-22',
-                filter: 'ACTIVITY_REQUESTED',
+                filter: 'active',
                 viewed: 1
             },
             {
@@ -62,7 +71,7 @@ const Activisties = [
                 dueDate: '2021-09-19',
                 image: 'https://picsum.photos/200',
                 updatedAt: '2021-10-22',
-                filter: 'ACTIVITY_REQUESTED',
+                filter: 'active',
                 viewed: 1
             }
         ]

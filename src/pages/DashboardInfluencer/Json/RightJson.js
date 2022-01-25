@@ -1,5 +1,103 @@
 const FullActivity = [
     {
+        id: '0',
+        name: 'Activity 0',
+        rating: '5',
+        views: '692',
+        dueDate: '2021-09-19',
+        image: 'http://someotherimage.com',
+        message: [
+            {
+                id: '2',
+                dueDate: '2021-09-19',
+                chat: [
+                    {
+                        id: '32',
+                        content: 'some content here',
+                        createdAt: '2021-09-22 16:38'
+                    },
+                    {
+                        id: '36',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '37',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '33',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '34',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '35',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '38',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    }
+                ]
+            },
+            {
+                id: '3',
+                dueDate: '2021-10-19',
+                new: true,
+                chat: [
+                    {
+                        id: '32',
+                        content: 'some content here',
+                        createdAt: '2021-09-22 16:38'
+                    },
+                    {
+                        id: '33',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '34',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '35',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '36',
+                        content: '12345678 1234567 shared with 1234567',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '37',
+                        content: '<strong>12345678 1234567</strong><br />123456 123<br />12411 123456 123456 1234</br />123456',
+                        createdAt: '3:45pm'
+                    },
+                    {
+                        id: '38',
+                        content: 'Waiting for 1234567 to 1234.',
+                        createdAt: '3:45pm'
+                    }
+                ]
+            }
+        ],
+        status: 'Activity_Requested',
+        addressShipped: '3739 35th street New York',
+        shipmentLink: 'http://someotherimage.com',
+        proofLink: 'http://someotherimage.com',
+        requirements: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    {
         id: '1',
         name: 'Activity 1',
         rating: '5',
