@@ -17,7 +17,7 @@ import AccountMenu from '../../components/AccountMenuDasboard';
 
 // assets
 import Logo from '../../assets/images/logo.png';
-import LeftSideA from './LeftSideA';
+import LeftSideA from './LeftSideB';
 import RightSide from './RightSide';
 
     const useStyles = makeStyles((theme) => ({
@@ -155,7 +155,7 @@ import RightSide from './RightSide';
     const DashboardIndex = () =>{
         const classes = useStyles();
 
-        const [activityId, setActivityId] = React.useState(3);
+        const [activityId, setActivityId] = React.useState('');
 
        const setID = (e) =>{
         setActivityId(e);

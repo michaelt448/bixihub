@@ -14,6 +14,8 @@ import PageFormFlow3 from './pages/pageFormFlow3';
 import Page5 from './pages/page5';
 import Page6 from './pages/page6';
 import Dashboard from './pages/Dashboard/Index';
+import DashboardB from './pages/Dashboard-B/Index';
+import DashboardInfluencer from './pages/DashboardInfluencer/Index';
 
 export default function App() {
   return (
@@ -36,6 +38,12 @@ export default function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/dashboard-b">
+            <DashboardB />
+          </Route>
+          <Route path="/dashboard-influencer">
+            <DashboardInfluencer />
           </Route>
           <Route path="/">
             <Home />

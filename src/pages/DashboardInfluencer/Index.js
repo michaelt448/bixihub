@@ -17,8 +17,9 @@ import AccountMenu from '../../components/AccountMenuDasboard';
 
 // assets
 import Logo from '../../assets/images/logo.png';
-import LeftSideA from './LeftSideA';
+import LeftSide from './LeftSide';
 import RightSide from './RightSide';
+import Filter from './Filter';
 
     const useStyles = makeStyles((theme) => ({
         header:{
@@ -136,6 +137,9 @@ import RightSide from './RightSide';
             "@media (max-width: 959px)":{
                 marginBottom: '25px'
             }
+        },
+        mb0: {
+            marginBottom: '0px'
         }
     }));
 
@@ -155,7 +159,10 @@ import RightSide from './RightSide';
     const DashboardIndex = () =>{
         const classes = useStyles();
 
-        const [activityId, setActivityId] = React.useState(3);
+        const [activityId, setActivityId] = React.useState('');
+        const [filter, setFilter] = React.useState('ACTIVITY_REQUESTED');
+
+        const handle = (e) => setFilter(e);
 
        const setID = (e) =>{
         setActivityId(e);
@@ -189,9 +196,15 @@ import RightSide from './RightSide';
 
                     <div className={classes.pageContent}>
                         <Container>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12} sm={12} md={3} className={classes.mb0}>
+                                    <Filter filter={(e) => handle(e)} />
+                                </Grid>
+                            </Grid>
+                            
                             <Grid container spacing={2} className={classes.mb50}>
                                 <Grid item xs={12} sm={12} md={3} className={classes.mb20}>
-                                    <LeftSideA getId={setID} />
+                                    <LeftSide getId={setID} filter={filter} />
                                 </Grid>
                                 
                                 <RightSide dataID={activityId} />
